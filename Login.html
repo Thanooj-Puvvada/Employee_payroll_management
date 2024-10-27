@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('login.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .role-container {
+            background-color: #ffffff;
+            width: 350px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px;
+            transform: translateX(4.5in);
+        }
+
+        .role-container h2 {
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .role-container h4 {
+            margin-bottom: 30px;
+            color: #666666;
+        }
+
+        .role-selection {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .role-selection button {
+            width: 180px;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #1ebad9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .role-selection button:hover {
+            background-color: #00ff2a;
+        }
+
+        .role-selection button:focus {
+            outline: none;
+            box-shadow: 0 0 10px #00ff2a;
+        }
+
+        .login-container {
+            display: none; /* Initially hidden */
+            background-color: #ffffff;
+            width: 300px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px;
+            transform: translateX(4.5in);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .login-container label {
+            font-size: 14px;
+            color: #333333;
+            margin-bottom: 8px;
+            display: block;
+            text-align: left;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            width: 100%;
+            background-color: #1ebad9;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-container button:hover {
+            background-color: #00ff2a;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            background-color: #ff5722;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #ff7043;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="role-container" id="roleSelectionContainer">
+        <h2>Welcome to Employee Payroll Management System</h2>
+        <h4>Select Your Role</h4>
+        <div class="role-selection">
+            <button onclick="showLoginForm('hr')">HR Login</button>
+            <button onclick="showLoginForm('employee')">Employee Login</button>
+        </div>
+    </div>
+
+    <div class="login-container" id="hrLoginContainer">
+        <h2>HR Login</h2>
+        <form id="hrLoginForm">
+            <label for="hrUsername">Username:</label>
+            <input type="text" id="hrUsername" name="username" required placeholder="HR Username">
+
+            <label for="hrPassword">Password:</label>
+            <input type="password" id="hrPassword" name="password" required placeholder="HR Password">
+
+            <button type="submit">Login</button>
+            <div class="error-message" id="hrErrorMessage"></div>
+        </form>
+        <button class="back-button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <div class="login-container" id="employeeLoginContainer">
+        <h2>Employee Login</h2>
+        <form id="employeeLoginForm">
+            <label for="employeeUsername">Username:</label>
+            <input type="text" id="employeeUsername" name="username" required placeholder="Employee Username">
+
+            <label for="employeePassword">Password:</label>
+            <input type="password" id="employeePassword" name="password" required placeholder="Employee Password">
+
+            <button type="submit">Login</button>
+            <div class="error-message" id="employeeErrorMessage"></div>
+        </form>
+        <button class="back-button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        const hrCredentials = {
+            username: 'hradmin',
+            password: 'hr123'
+        };
+
+        const employeeCredentials = {
+            username: 'employee1',
+            password: 'emp123'
+        };
+
+        function showLoginForm(role) {
+            document.getElementById('roleSelectionContainer').style.display = 'none';
+
+            if (role === 'hr') {
+                document.getElementById('hrLoginContainer').style.display = 'block';
+            } else if (role === 'employee') {
+                document.getElementById('employeeLoginContainer').style.display = 'block';
+            }
+        }
+
+        function goBack() {
+            document.getElementById('roleSelectionContainer').style.display = 'block';
+            document.getElementById('hrLoginContainer').style.display = 'none';
+            document.getElementById('employeeLoginContainer').style.display = 'none';
+        }
+
+        document.getElementById('hrLoginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const enteredUsername = document.getElementById('hrUsername').value;
+            const enteredPassword = document.getElementById('hrPassword').value;
+            const errorMessage = document.getElementById('hrErrorMessage');
+
+            if (enteredUsername === hrCredentials.username && enteredPassword === hrCredentials.password) {
+                window.location.href = 'hr_dashboard.html';
+            } else {
+                errorMessage.textContent = 'Invalid HR username or password.';
+            }
+        });
+
+        document.getElementById('employeeLoginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const enteredUsername = document.getElementById('employeeUsername').value;
+            const enteredPassword = document.getElementById('employeePassword').value;
+            const errorMessage = document.getElementById('employeeErrorMessage');
+
+            if (enteredUsername === employeeCredentials.username && enteredPassword === employeeCredentials.password) {
+                window.location.href = 'employee_dashboard.html';
+            } else {
+                errorMessage.textContent = 'Invalid Employee username or password.';
+            }
+        });
+    </script>
+</body>
+</html>

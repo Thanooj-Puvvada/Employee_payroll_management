@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payroll Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #1ebadf;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            color: white;
+            font-size: 24px;
+        }
+
+        .navbar .logout {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .logout:hover {
+            background-color: #f53e06;
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .content h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .actions {
+            margin-top: 40px;
+        }
+
+        .actions a {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 40px;
+            text-decoration: none;
+            background-color: #1ebadf;
+            color: white;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        .actions a:hover {
+            background-color: #00ff2a;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>Employee Payroll Management System</h1>
+        <a href="login.html" class="logout">Logout</a>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to Employee Payroll Management System</h1>
+        <p>Please choose an action to proceed:</p>
+
+        <div class="actions">
+            <a href="view_payslip.html">View Payslip</a>
+        </div>
+    </div>
+
+</body>
+</html>

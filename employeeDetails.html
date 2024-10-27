@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #1ebadf;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            color: white;
+            font-size: 24px;
+        }
+
+        .navbar .goback {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .goback:hover {
+            background-color: #f53e06;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        .actions {
+            margin-top: 30px;
+        }
+
+        .actions a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            text-decoration: none;
+            background-color: #1ebadf;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .actions a:hover {
+            background-color: #00ff2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Employee Payroll Management System</h1>
+        <a href="hr_dashboard.html" class="goback">Go Back</a>
+    </div>
+
+    <div class="header">
+        <h1 align="center">Employee Details</h1>
+    </div>
+
+    <div class="container">
+        <h2>Manage Employees</h2>
+
+        <div class="actions">
+            <a href="add_employee.html">Add Employee</a>
+            <a href="update_employee.html">Update Employee</a>
+            <a href="remove_employee.html">Remove Employee</a>
+        </div>
+    </div>
+</body>
+</html>
